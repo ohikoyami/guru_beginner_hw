@@ -2,7 +2,7 @@ import pytest
 from selene import browser, be, have
 
 def open_browser():
-    browser.open('/ncr')  #подтверждение cookie
+    browser.open('/ncr')  #подтверждение cookie + открытие браузера
 
 
 def test_search_1():
