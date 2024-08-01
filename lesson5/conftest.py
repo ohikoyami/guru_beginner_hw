@@ -6,7 +6,6 @@ from selene import browser
 def manage_browser():
     browser.config.base_url = 'https://demoqa.com'  # фикстура - дефолт браузер
     browser.config.timeout = 2.0
-    browser.open('/automation-practice-form') #подтверждение cookie + открытие браузера
     print("Браузер открыт фикстурой")
 
     yield
