@@ -2,29 +2,38 @@ import os.path
 
 from selene import browser, have
 
-
+def fill_birth_date(day: int, month: int, year: int):
+    browser.element('#dateOfBirthInput').click()
+    browser.element(f'.react-datepicker__month-select option[value="{month - 1}"]').click() #месяцы идут от 0 до 11
+    browser.element(f'.react-datepicker__year-select option[value="{year}"]').click()
+    browser.element(f'.react-datepicker__day.react-datepicker__day--{str(day).zfill(2)}').click() # zfill(2) это 9 число -> 009
 def test_fill_form():
+    browser.open('/automation-practice-form')
     browser.element('#firstName').type('Daria')
     browser.element('#lastName').type('Bilenko')
     browser.element('#userEmail').type('e.mail@dssl.ru')
-    browser.element('[for="gender-radio-1"]').click()
-    browser.element('[for="gender-radio-2"]').click()
-    browser.element('[for="gender-radio-3"]').click()
+    browser.element('#genterWrapper').element('input[value="Female"]').click()
     browser.element('#userNumber').type('9876541234')
-    browser.element('#dateOfBirthInput').click()
-    browser.element('.react-datepicker__month-select option[value="3"]').click()
-    browser.element('.react-datepicker__year-select option[value="2002"]').click()
-    browser.element('.react-datepicker__day.react-datepicker__day--009').click()
-    browser.element('#subjectsInput').type('M').press_tab()
-    browser.element('[for="hobbies-checkbox-1"]').click()
-    browser.element('[for="hobbies-checkbox-2"]').click()
-    browser.element('[for="hobbies-checkbox-3"]').click()
+    fill_birth_date(9, 3, 2002)
+    browser.element('#subjectsInput').type('Math').press_tab()
+    browser.element('#hobbies-checkbox-1').click()
+    browser.element('#hobbies-checkbox-3').click()
     browser.element('#uploadPicture').send_keys(os.path.abspath('img.png'))
     browser.element('#currentAddress').type('st. Skobelevskaya')
     browser.element('#react-select-3-input').type('raja').press_tab()
     browser.element('#react-select-4-input').type('jaip').press_tab()
     browser.element('#submit').click()
-    assert browser.element(".modal-content").element('table').all('tr').all('td').even.should(have.exact_texts(
+
+    # проверка корректных данных в итоговой форме:
+    # Проверка осуществляется в четных ячейках таблицы (td) внутри модального окна (.modal-content)
+    # Получаем элемент модального окна - browser.element('.modal-content')
+    # Находим элемент таблицы внутри модального окна - element('table')
+    # Получаем все строки таблицы - all('tr')
+    # Получаем все ячейки таблицы внутри строк - all('td')
+    # Отфильтровываем только четные ячейки - even
+    # Проверяем, что текст в этих ячейках точно соответствует ожидаемому - should(have.exact_texts()
+
+    assert browser.element('.modal-content').element('table').all('tr').all('td').even.should(have.exact_texts(
         'Daria Bilenko',
         'e.mail@dssl.ru',
         'Other',
