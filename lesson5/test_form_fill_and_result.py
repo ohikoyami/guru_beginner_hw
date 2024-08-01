@@ -6,18 +6,18 @@ def fill_birth_date(day: int, month: int, year: int):
     browser.element('#dateOfBirthInput').click()
     browser.element(f'.react-datepicker__month-select option[value="{month - 1}"]').click() #месяцы идут от 0 до 11
     browser.element(f'.react-datepicker__year-select option[value="{year}"]').click()
-    browser.element(f'.react-datepicker__day.react-datepicker__day--{str(day).zfill(2)}').click() # zfill(2) это 9 число -> 009
+    browser.element(f'.react-datepicker__day.react-datepicker__day--{day:03d}').click()# day:03d это добавление 0 перед числом в зависимости от его длины
 def test_fill_form():
     browser.open('/automation-practice-form')
     browser.element('#firstName').type('Daria')
     browser.element('#lastName').type('Bilenko')
     browser.element('#userEmail').type('e.mail@dssl.ru')
-    browser.element('#genterWrapper').element('input[value="Female"]').click()
+    browser.element('#genterWrapper').element('input[value="Female"]').element('..').click() # выбор элемента с явным указанием гендера
     browser.element('#userNumber').type('9876541234')
-    fill_birth_date(9, 3, 2002)
+    fill_birth_date(9, 4, 2002)
     browser.element('#subjectsInput').type('Math').press_tab()
-    browser.element('#hobbies-checkbox-1').click()
-    browser.element('#hobbies-checkbox-3').click()
+    browser.element('#hobbies-checkbox-1').element('..').click()
+    browser.element('#hobbies-checkbox-3').element('..').click()
     browser.element('#uploadPicture').send_keys(os.path.abspath('img.png'))
     browser.element('#currentAddress').type('st. Skobelevskaya')
     browser.element('#react-select-3-input').type('raja').press_tab()
@@ -36,12 +36,11 @@ def test_fill_form():
     assert browser.element('.modal-content').element('table').all('tr').all('td').even.should(have.exact_texts(
         'Daria Bilenko',
         'e.mail@dssl.ru',
-        'Other',
+        'Female',
         '9876541234',
         '09 April,2002',
         'Maths',
         'Sports, '
-        'Reading, '
         'Music',
         'img.png',
         'st. Skobelevskaya',
