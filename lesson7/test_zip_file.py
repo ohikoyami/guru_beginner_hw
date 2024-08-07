@@ -1,6 +1,3 @@
-from os.path import split
-
-import selene
 import zipfile
 import os
 
