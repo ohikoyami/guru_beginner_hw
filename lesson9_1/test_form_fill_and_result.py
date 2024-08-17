@@ -28,8 +28,7 @@ def test_fill_form():
         '9876541234',
         '09 April,2002',
         'Maths',
-        'Sports, '
-        'Music',
+        'Sports, Music',
         'img.png',
         'st. Skobelevskaya',
         'Rajasthan Jaipur')

@@ -78,14 +78,14 @@ class RegistrationPage:
         self.City.type(value).press_tab()
         return self
 
-    def check_Result(self, fullname, email, gender, phone, bday, subject1, subject2, img, addr, CityAndState):
+    def check_Result(self, fullname, email, gender, phone, bday, subject1, hobbies, img, addr, CityAndState):
         assert self.Result.even.should(have.exact_texts(fullname,
                                                  email,
                                                  gender,
                                                  phone,
                                                  bday,
                                                  subject1,
-                                                 subject2,
+                                                 hobbies,
                                                  img,
                                                  addr,
                                                  CityAndState))
