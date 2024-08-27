@@ -16,7 +16,7 @@ def fill_birth_date(day: int, month: int, year: int):
 
 @allure.step('ОТкрытие формы для заполнения')
 def open_form():
-    browser.open('https://demoqa.com/automation-practice-form')
+    browser.open('/automation-practice-form')
 
 
 @allure.step('Заполнение формы')

@@ -1,5 +1,5 @@
 import pytest
-from selene import Config, Browser
+from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -23,7 +23,10 @@ def manage_browser():
         options=options
     )
 
-    browser = Browser(Config(driver=driver))
+    browser.config.driver = driver
+    browser.config.base_url = 'https://demoqa.com'  # фикстура - дефолт браузер
+    browser.config.timeout = 2.0
+    print("Браузер открыт фикстурой")
 
     yield browser
 
