@@ -12,7 +12,7 @@ def product():
 
 
 @pytest.fixture
-def cart(product):
+def cart():
     return Cart()
 
 
