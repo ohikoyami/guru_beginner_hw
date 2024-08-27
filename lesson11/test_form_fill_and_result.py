@@ -14,7 +14,7 @@ def fill_birth_date(day: int, month: int, year: int):
                     f'.react-datepicker__day--{day:03d}').click()
 
 
-@allure.step('ОТкрытие формы для заполнения')
+@allure.step('Открытие формы для заполнения')
 def open_form():
     browser.open('/automation-practice-form')
 
