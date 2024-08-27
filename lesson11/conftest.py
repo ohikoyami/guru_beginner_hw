@@ -28,10 +28,10 @@ def manage_browser():
 
     yield driver
 
-    attach.add_screenshot(browser)
-    attach.add_logs(browser)
-    attach.add_html(browser)
-    attach.add_video(browser)
+    attach.add_screenshot(driver)
+    attach.add_logs(driver)
+    attach.add_html(driver)
+    attach.add_video(driver)
 
-    browser.quit()
+    driver.quit()
     print("Браузер закрыт фикстурой")
