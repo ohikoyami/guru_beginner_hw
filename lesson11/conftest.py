@@ -23,10 +23,7 @@ def manage_browser():
         options=options
     )
 
-    #browser = Browser(Config(driver))
-    config = Config()
-    config.driver = driver  # Присваиваем driver после создания Config
-    browser = Browser(config)
+    browser = Browser(Config(driver=driver))
 
     yield browser
 
