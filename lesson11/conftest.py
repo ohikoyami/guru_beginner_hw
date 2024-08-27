@@ -1,5 +1,5 @@
 import pytest
-from selene import Config, Browser, browser
+from selene import Config, Browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -11,7 +11,7 @@ def manage_browser():
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
-        "browserVersion": "100.0",
+        "browserVersion": "126.0",
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": True
@@ -24,9 +24,9 @@ def manage_browser():
     )
 
     #browser = Browser(Config(driver))
-    browser.config.base_url = 'https://demoqa.com'
-    browser.config.timeout = 2.0
-    print("Браузер открыт фикстурой")
+    config = Config()
+    config.driver = driver  # Присваиваем driver после создания Config
+    browser = Browser(config)
 
     yield browser
 

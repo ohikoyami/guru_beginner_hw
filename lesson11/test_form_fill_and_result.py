@@ -1,8 +1,7 @@
 import os.path
-
 from selene import browser, have
 import allure
-from allure_commons.types import Severity, AttachmentType
+from allure_commons.types import Severity
 
 
 def fill_birth_date(day: int, month: int, year: int):
@@ -17,7 +16,7 @@ def fill_birth_date(day: int, month: int, year: int):
 
 @allure.step('ОТкрытие формы для заполнения')
 def open_form():
-    browser.open('/automation-practice-form')
+    browser.open('https://demoqa.com/automation-practice-form')
 
 
 @allure.step('Заполнение формы')
