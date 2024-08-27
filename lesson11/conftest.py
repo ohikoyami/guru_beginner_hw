@@ -26,12 +26,12 @@ def manage_browser():
     browser.config.driver = driver
     browser.config.base_url = 'https://demoqa.com'  # фикстура - дефолт браузер
 
-    yield driver
+    yield browser
 
-    attach.add_screenshot(driver)
-    attach.add_logs(driver)
-    attach.add_html(driver)
-    attach.add_video(driver)
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_html(browser)
+    attach.add_video(browser)
 
-    driver.quit()
+    browser.quit()
     print("Браузер закрыт фикстурой")
