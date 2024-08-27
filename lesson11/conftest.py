@@ -6,6 +6,12 @@ from selenium.webdriver.chrome.options import Options
 from utils import attach
 
 
+@pytest.fixture(scope="session")
+def browser_version():
+    import os
+    return os.getenv('BROWSER_VERSION', '126.0')
+
+
 @pytest.fixture(autouse=True)
 def manage_browser():
     options = Options()
