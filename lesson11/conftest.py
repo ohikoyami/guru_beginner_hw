@@ -24,7 +24,7 @@ def manage_browser():
     )
 
     browser.config.driver = driver
-    browser.config.base_url = 'https://demoqa.com'  # фикстура - дефолт браузер
+    browser.config.base_url = 'https://demoqa.com'
 
     yield browser
 
