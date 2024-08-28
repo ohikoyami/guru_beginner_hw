@@ -5,13 +5,6 @@ from selenium.webdriver.chrome.options import Options
 
 from utils import attach
 
-import subprocess
-
-
-def get_chromedriver_version():
-    result = subprocess.run(['chromedriver', '--version'], capture_output=True, text=True)
-    return result.stdout.strip()
-
 
 @pytest.fixture(autouse=True)
 def manage_browser():
@@ -32,15 +25,7 @@ def manage_browser():
 
     browser.config.driver = driver
     browser.config.base_url = 'https://demoqa.com'
-
-    chromedriver_path = '/lesson11/chromedriver.exe'
-    options = webdriver.ChromeOptions()
-
-    capabilities = driver.capabilities
-    chromedriver_version = capabilities.get('chrome')  # Версия браузера Chrome
-
-    print(f'Chromedriver version: {capabilities.get("chrome", {}).get("version")}')
-    print(f'Browser version: {capabilities.get("browserVersion")}')
+    driver.maximize_window()
 
     yield browser
 
