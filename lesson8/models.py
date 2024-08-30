@@ -77,7 +77,7 @@ class Cart:
             self.products[product] -= remove_count
 
         if product not in self.products:
-            return
+            raise ValueError(f"{product} в корзине нет")
 
     def clear(self):
         self.products.clear()
