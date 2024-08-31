@@ -1,5 +1,5 @@
 import os.path
-from selene import browser, have
+from selene import browser, have, command
 import allure
 from allure_commons.types import Severity
 
@@ -17,6 +17,8 @@ def fill_birth_date(day: int, month: int, year: int):
 @allure.step('Открытие формы для заполнения')
 def open_form():
     browser.open('/automation-practice-form')
+    browser.element('#fixedban').perform(command.js.remove)
+    browser.element('footer').perform(command.js.remove)
 
 
 @allure.step('Заполнение формы')
