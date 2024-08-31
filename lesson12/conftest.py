@@ -33,6 +33,7 @@ def manage_browser():
 
     browser.config.driver = driver
     browser.config.base_url = 'https://demoqa.com'
+    browser.config.timeout = 10
     driver.maximize_window()
 
     yield browser
