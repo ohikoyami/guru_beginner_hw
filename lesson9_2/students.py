@@ -1,5 +1,4 @@
-from form_classes import Student
-
+from data.student_info import Student
 daria = Student('Daria',
                     'Bilenko',
                     'e.mail@dssl.ru',
