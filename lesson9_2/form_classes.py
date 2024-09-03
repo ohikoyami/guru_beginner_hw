@@ -2,27 +2,7 @@ import calendar
 import os
 
 from selene import browser, have
-
-
-class Student:
-    def __init__(self, name, lastname, email, phone, subject1, addr,
-                 city, state, gender, bday_day, bday_month, bday_year, hobbies1, hobbies2, img):
-        self.name = name
-        self.lastname = lastname
-        self.email = email
-        self.phone = phone
-        self.subject1 = subject1
-        self.addr = addr
-        self.city = city
-        self.state = state
-
-        self.gender = gender
-        self.bday_day = bday_day
-        self.bday_month = bday_month
-        self.bday_year = bday_year
-        self.hobbies1 = hobbies1
-        self.hobbies2 = hobbies2
-        self.img = img
+from data.student_info import Student
 
 
 class RegistrationPage:
