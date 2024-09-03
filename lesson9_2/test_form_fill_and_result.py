@@ -1,5 +1,4 @@
 from students import daria
-from form_classes import Student
 from form_classes import Application
 
 
