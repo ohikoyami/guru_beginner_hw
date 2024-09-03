@@ -22,11 +22,11 @@ class RegistrationPage:
         self.city = browser.element('#react-select-4-input')
         self.result_bill = browser.element('#submit')
 
-    def open_reg_page(self):
+    def open(self):
         browser.open('/automation-practice-form')
         return self
 
-    def fill_registration_page(self, student: Student):
+    def fill(self, student: Student):
         self.first_name.type(student.name)
         self.last_name.type(student.lastname)
         self.user_email.type(student.email)
@@ -47,7 +47,7 @@ class RegistrationPage:
         self.city.type(student.city).press_tab()
         return self
 
-    def submit_form(self):
+    def submit(self):
         self.result_bill.click()
         return self
 
@@ -56,7 +56,7 @@ class ProfilePage:
     def __init__(self):
         self.result = browser.element('.modal-content').element('table').all('tr').all('td').even
 
-    def check_result(self, student: Student):
+    def check_form(self, student: Student):
         day = f'{student.bday_day:02d}'
         month = f'{calendar.month_name[student.bday_month]}'
 
