@@ -6,10 +6,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from utils import attach
+from dotenv import load_dotenv
 
 
 @pytest.fixture(autouse=True)
 def manage_browser():
+    load_dotenv()
     selenoid_user = os.getenv('SELENOID_USER')
     selenoid_password = os.getenv('SELENOID_PASSWORD')
 
