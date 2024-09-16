@@ -13,9 +13,6 @@ def manage_browser():
     selenoid_user = os.getenv('SELENOID_USER')
     selenoid_password = os.getenv('SELENOID_PASSWORD')
 
-    selenoid_user = 'user1'
-    selenoid_password = '1234'
-
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
