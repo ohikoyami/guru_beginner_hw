@@ -6,7 +6,6 @@ from selene import browser
 def manage_browser():
     browser.config.base_url = 'https://demoqa.com'
     browser.config.timeout = 10
-    browser.maximize_window()
 
     yield browser
 
