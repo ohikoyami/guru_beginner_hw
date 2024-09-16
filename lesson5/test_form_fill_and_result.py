@@ -2,14 +2,16 @@ import os.path
 
 from selene import browser, have
 
+
 def fill_birth_date(day: int, month: int, year: int):
     browser.element('#dateOfBirthInput').click()
-    browser.element(f'.react-datepicker__month-select option[value="{month - 1}"]').click() #месяцы идут от 0 до 11
+    browser.element(f'.react-datepicker__month-select option[value="{month - 1}"]').click()  #месяцы идут от 0 до 11
     browser.element(f'.react-datepicker__year-select option[value="{year}"]').click()
 
     # day:03d это добавление 0 перед числом в зависимости от его длины
     browser.element(f'.react-datepicker__day'
                     f'.react-datepicker__day--{day:03d}').click()
+
 
 def test_fill_form():
     browser.open('/automation-practice-form')
