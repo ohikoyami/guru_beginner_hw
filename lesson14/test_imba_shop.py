@@ -7,11 +7,11 @@ from classes.PageClasses import ShopPonchiki
 shop_ponchiki = ShopPonchiki(raspberry_pistachio_shell)
 
 
-'''@allure.tag('web')
+@allure.tag('web')
 @allure.severity(Severity.MINOR)
 @allure.label('owner', 'bilenkoda')
 @allure.feature('Проверка сайта krispykreme')
-@allure.story('Тест функциональности сайта')'''
+@allure.story('Тест функциональности сайта')
 @allure.step('Проверка тайтла главной страницы сайта')
 def test_open_base_page():
     shop_ponchiki.base_page.open()
