@@ -1,4 +1,4 @@
-import os.path
+import time
 
 from selene import browser, have, be, by
 from data.ponchik_info import Ponchik
@@ -38,6 +38,7 @@ class CatalogPage:
 class FavoritePage:
 
     def open(self):
+        time.sleep(1)
         browser.element('.page-header-14__favorites').click()
         browser.element('.product-section-info__header').should(have.text('Избранное'))
         return self
