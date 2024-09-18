@@ -1,11 +1,10 @@
 import os
-
 import pytest
 from selene import browser, command
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-#from utils import attach
+from utils import attach
 from dotenv import load_dotenv
 
 
@@ -38,10 +37,10 @@ def manage_browser():
 
     yield browser
 
-    '''attach.add_screenshot(browser)
+    attach.add_screenshot(browser)
     attach.add_logs(browser)
     attach.add_source(browser)
-    attach.add_video(browser)'''
+    attach.add_video(browser)
 
     browser.quit()
     print("Браузер закрыт фикстурой")
