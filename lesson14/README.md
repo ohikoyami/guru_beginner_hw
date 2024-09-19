@@ -19,7 +19,7 @@
 ## Результаты теста
 ### Allure-отчет
 #### Главная страница Allure-отчета
-![img.png](img_readme/allure_test_results.png)
+![Главная страница Allure-отчета](img_readme/allure_test_results.png)
 #### Видео теста: Проверка тайтла главной страницы
 ![Проверка тайтла главной страницы](img_readme/check_title_and_logo.gif)
 #### Видео теста: Проверка логотипа на главной странице
@@ -32,4 +32,4 @@
 ![Добавление продукта в избранное](img_readme/add_in_favorite.gif)
 
 ### Telegram-уведомление о прохождении тестов
-![img.png](img_readme/telegram.png)
+![Telegram-уведомление о прохождении тестов](img_readme/telegram.png)
