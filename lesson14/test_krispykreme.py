@@ -54,7 +54,5 @@ def test_add_to_cart():
 @allure.step('Проверка добавления поника в избранное')
 def test_add_to_favorite():
     browser.open('/ponchiki')
-    shop_ponchiki.catalog_page.open_product_card(raspberry_pistachio_shell)
-    shop_ponchiki.catalog_page.add_product_to_favorite_page()
-    shop_ponchiki.favorite_page.open()
-    shop_ponchiki.favorite_page.check_added_product(raspberry_pistachio_shell)
+    shop_ponchiki.catalog_page.open_product_card(raspberry_pistachio_shell).add_product_to_favorite_page()
+    shop_ponchiki.favorite_page.open().check_added_product(raspberry_pistachio_shell)
