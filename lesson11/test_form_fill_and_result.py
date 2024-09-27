@@ -1,6 +1,7 @@
 import os.path
-
 from selene import browser, have
+import allure
+from allure_commons.types import Severity
 
 
 def fill_birth_date(day: int, month: int, year: int):
@@ -13,15 +14,17 @@ def fill_birth_date(day: int, month: int, year: int):
                     f'.react-datepicker__day--{day:03d}').click()
 
 
-def test_fill_form():
+@allure.step('Открытие формы для заполнения')
+def open_form():
     browser.open('/automation-practice-form')
+
+
+@allure.step('Заполнение формы')
+def fill_form():
     browser.element('#firstName').type('Daria')
     browser.element('#lastName').type('Bilenko')
     browser.element('#userEmail').type('e.mail@dssl.ru')
-
-    # выбор элемента с явным указанием гендера
     browser.element('#genterWrapper').element('input[value="Female"]').element('..').click()
-
     browser.element('#userNumber').type('9876541234')
     fill_birth_date(9, 4, 2002)
     browser.element('#subjectsInput').type('Math').press_tab()
@@ -31,17 +34,15 @@ def test_fill_form():
     browser.element('#currentAddress').type('st. Skobelevskaya')
     browser.element('#react-select-3-input').type('raja').press_tab()
     browser.element('#react-select-4-input').type('jaip').press_tab()
+
+
+@allure.step('Подтверждение данных в форме')
+def submit_form():
     browser.element('#submit').click()
 
-    ''' проверка корректных данных в итоговой форме:
-    # Проверка осуществляется в четных ячейках таблицы (td) внутри модального окна (.modal-content)
-    # Получаем элемент модального окна - browser.element('.modal-content')
-    # Находим элемент таблицы внутри модального окна - element('table')
-    # Получаем все строки таблицы - all('tr')
-    # Получаем все ячейки таблицы внутри строк - all('td')
-    # Отфильтровываем только четные ячейки - even
-    # Проверяем, что текст в этих ячейках точно соответствует ожидаемому - should(have.exact_texts()'''
 
+@allure.step('Проверка результатов заполнения формы')
+def check_result():
     assert browser.element('.modal-content').element('table').all('tr').all('td').even.should(have.exact_texts(
         'Daria Bilenko',
         'e.mail@dssl.ru',
@@ -54,3 +55,15 @@ def test_fill_form():
         'img.png',
         'st. Skobelevskaya',
         'Rajasthan Jaipur'))
+
+
+@allure.tag('web')
+@allure.severity(Severity.MINOR)
+@allure.label('owner', 'bilenkoda')
+@allure.feature('Проверка заполнения формы')
+@allure.story('Тест формы')
+def test_fill_form():
+    open_form()
+    fill_form()
+    submit_form()
+    check_result()
