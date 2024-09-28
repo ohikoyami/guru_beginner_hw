@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "lesson16"
+version = "0.1.0"
+description = "Project created by poetry"
+authors = ["Daria Bilenko <bilenko-dasha@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.3"
+selene = "^2.0.0rc9"
+
+[tool.poetry.dev-dependencies]
+pylint = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
