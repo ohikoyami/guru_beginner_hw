@@ -5,22 +5,17 @@ from jsonschema import validate
 
 BASE_URL = "https://reqres.in/api"
 
-'''def test_get_list_users():
-    response = requests.get(f"{BASE_URL}/users?page=2")
-    assert response.status_code == 200
-    assert 'data' in response.json()'''
-
 
 def test_post_create_user_positive():
-    user_info = {"name": "Daria", "job": "QA"}
-    response = requests.post(f"{BASE_URL}/users", json=user_info)
+    payload = {"name": "Daria", "job": "QA"}
+    response = requests.post(f"{BASE_URL}/users", json=payload)
     assert response.status_code == 201
     assert response.json()["name"] == "Daria"
 
 
 def test_put_update_user_info():
-    user_info = {"name": "Daria", "job": "developer"}
-    response = requests.put(f"{BASE_URL}/users/2", json=user_info)
+    payload = {"name": "Daria", "job": "developer"}
+    response = requests.put(f"{BASE_URL}/users/2", json=payload)
     assert response.status_code == 200
     assert response.json()["job"] == "developer"
 
@@ -31,22 +26,14 @@ def test_delete_user():
 
 
 def test_post_create_user_negative():
-    user_info = {"email": "sydney@fife"}
-    response = requests.post(f"{BASE_URL}/register", json=user_info)
+    payload = {"email": "sydney@fife"}
+    response = requests.post(f"{BASE_URL}/register", json=payload)
     assert response.status_code == 400
 
 
 def test_user_not_founded():
     response = requests.get(f"{BASE_URL}/users/23")
     assert response.status_code == 404
-
-
-'''def test_get_user_schema():
-    response = requests.get(f"{BASE_URL}/users/2")
-    json_response = response.json()
-    assert 'data' in json_response
-    assert 'id' in json_response['data']
-    assert isinstance(json_response['data']['id'], int)'''
 
 
 def test_get_user_schema_with_response():
