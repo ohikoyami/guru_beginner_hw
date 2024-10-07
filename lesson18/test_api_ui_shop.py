@@ -49,7 +49,6 @@ def test_add_product_to_cart():
     with step('Check number of products in cart'):
         check_cart_num_of_products_ui(product_laptop.product_quantity)
 
-    # Проверка, что продукт корректно добавлен в корзину
     with step('Check correct info of added products in cart'):
         check_cart_add_correct_products_ui(product_laptop.product_quantity, product_laptop.product_name)
 
