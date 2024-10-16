@@ -5,8 +5,7 @@ import requests
 from appium.options.android import UiAutomator2Options
 from selene import browser, support
 
-import project
-
+import project_config
 
 @pytest.fixture(scope='function', autouse=True)
 def mobile_management():
@@ -26,12 +25,12 @@ def mobile_management():
             'sessionName': 'BStack first_test',
 
             # Set your access credentials
-            'userName': project.config.userName,
-            'accessKey': project.config.accessKey
+            'userName': project_config.config.userName,
+            'accessKey': project_config.config.accessKey
         }
     })
 
-    browser.config.driver_remote_url = project.config.remote_url
+    browser.config.driver_remote_url = project_config.config.remote_url
     browser.config.driver_options = options
     browser.config.timeout = 10.0
 
@@ -56,7 +55,7 @@ def mobile_management():
 
     response = requests.get(
         f'https://api.browserstack.com/app-automate/sessions/{session_id}.json',
-        auth=(project.config.userName, project.config.accessKey),
+        auth=(project_config.config.userName, project_config.config.accessKey),
     ).json()
 
     video_url = response['automation_session']['video_url']
