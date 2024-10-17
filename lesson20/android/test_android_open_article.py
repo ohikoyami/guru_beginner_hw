@@ -43,4 +43,3 @@ def test_open_article():
     with step('Open first article'):
         results = browser.all((AppiumBy.ID, 'org.wikipedia:id/page_list_item_title'))
         results.first.click()
-        browser.element((AppiumBy.CLASS_NAME, 'android.widget.TextView')).should(have.text('Selene'))

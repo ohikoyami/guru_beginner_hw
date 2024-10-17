@@ -3,7 +3,7 @@ import allure_commons
 import pytest
 from appium import webdriver
 from selene import browser, support
-from utils.allure_attachs import attach_screenshot, attach_screen_xml_dump, attach_bstack_video
+from utils.allure_attachs import allure_xml,  allure_png, allure_video
 import project
 
 
@@ -20,13 +20,12 @@ def mobile_management():
 
     yield
 
-    attach_screenshot()
-
-    attach_screen_xml_dump()
+    allure_png()
+    allure_xml()
 
     session_id = browser.driver.session_id
 
     browser.quit()
 
     if project.config.context == 'bstack':
-        attach_bstack_video(session_id)
+        allure_video(session_id)
