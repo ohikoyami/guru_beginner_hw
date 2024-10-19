@@ -1,0 +1,2 @@
+allure-pytest
+requests>=2.32.1
