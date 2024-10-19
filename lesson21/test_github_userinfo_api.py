@@ -1,19 +1,18 @@
+import os
 import requests
 import allure
-import pytest
 
-# Базовый URL GitHub API
-BASE_URL = "https://api.github.com"
+BASE_URL = 'https://api.github.com'
 
 @allure.feature('GitHub API')
 @allure.story('Получение информации о пользователе')
 @allure.step("Тест на получение информации о пользователе {username}")
 def test_get_user_info(username="ohikoyami"):
     with allure.step(f"Отправка запроса на получение информации о пользователе {username}"):
-        response = requests.get(f"{BASE_URL}/users/{username}")
+        response = requests.get(f"{BASE_URL}/users/{username}", headers=headers)
 
     with allure.step("Проверка, что статус ответа 200"):
-        assert response.status_code == 200, f"Expected 200, got {response.status_code}"
+        assert response.status_code == 200 , f"Expected 200, got {response.status_code}"
 
     with allure.step("Проверка структуры ответа"):
         data = response.json()
@@ -26,7 +25,7 @@ def test_get_user_info(username="ohikoyami"):
 @allure.step("Тест на получение репозиториев пользователя {username}")
 def test_get_user_repos(username="ohikoyami"):
     with allure.step(f"Отправка запроса на получение публичных репозиториев пользователя {username}"):
-        response = requests.get(f"{BASE_URL}/users/{username}/repos")
+        response = requests.get(f"{BASE_URL}/users/{username}/repos", headers=headers)
 
     with allure.step("Проверка, что статус ответа 200"):
         assert response.status_code == 200, f"Expected 200, got {response.status_code}"
@@ -42,7 +41,7 @@ def test_get_user_repos(username="ohikoyami"):
 @allure.step("Тест на запрос информации несуществующего пользователя {username}")
 def test_nonexistent_user(username="ohikoyamiiiii"):
     with allure.step(f"Отправка запроса на получение информации о несуществующем пользователе {username}"):
-        response = requests.get(f"{BASE_URL}/users/{username}")
+        response = requests.get(f"{BASE_URL}/users/{username}", headers=headers)
 
     with allure.step("Проверка, что статус ответа 404"):
         assert response.status_code == 404, f"Expected 404, got {response.status_code}"
