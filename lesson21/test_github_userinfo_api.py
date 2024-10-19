@@ -1,6 +1,5 @@
 import requests
 import allure
-import pytest
 
 # Базовый URL GitHub API
 BASE_URL = "https://api.github.com"
