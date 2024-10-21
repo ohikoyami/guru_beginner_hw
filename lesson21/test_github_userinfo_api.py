@@ -47,7 +47,7 @@ def test_update_post():
 @allure.feature("Post API Tests")
 @allure.story("Deleting a post")
 def test_delete_post():
-    # Сначала проверяем, что пост существует
+    # Проверяем, что пост существует
     with allure.step("Get the post to ensure it exists"):
         response = requests.get(f"{BASE_URL}/posts/1")
         assert response.status_code == 200  # Проверяем, что пост есть
@@ -60,4 +60,4 @@ def test_delete_post():
     # Проверяем, что пост все еще существует
     with allure.step("Get the post again to verify it still exists"):
         response = requests.get(f"{BASE_URL}/posts/1")
-        assert response.status_code == 200  # Убедитесь, что вы все еще можете получить пост
+        assert response.status_code == 200  # Убедитесь, что можно получить пост
