@@ -5,9 +5,13 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+from dotenv import load_dotenv
+
 
 @pytest.fixture(autouse=True)
 def manage_browser():
+    load_dotenv()
+
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
