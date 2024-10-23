@@ -39,7 +39,7 @@ def check_cart_add_correct_products_ui(product_quantity, product_name):
 
 
 def check_cart_num_of_products_ui(total_quantity):
-    quantity_actual = check_quantity_status()
+    check_quantity_status()
 
 
 def remove_product_from_cart():
