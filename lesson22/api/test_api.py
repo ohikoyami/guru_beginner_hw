@@ -3,7 +3,7 @@ from api.pages.favorites import add_in_favorite, update_favorite_product, get_fa
 
 
 def test_api():
-    cart.add_to_cart().update_product_quantity().get_cart_data()
+    cart.add_product_to_cart().update_product_quantity().get_cart_data()
     add_in_favorite()
     update_favorite_product()
     get_favorite_products()
