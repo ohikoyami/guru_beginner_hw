@@ -58,7 +58,7 @@ class CartPage:
 
 
 class ShopPonchiki:
-    def __init__(self, ponchik: Ponchik):
+    def __init__(self):
         self.base_page = BasePage()
         self.catalog_page = CatalogPage()
         self.cart_page = CartPage()

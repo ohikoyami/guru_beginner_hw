@@ -4,7 +4,7 @@ from allure_commons.types import Severity
 from products.raspberry_pistachio_shell import raspberry_pistachio_shell
 from classes.PageClasses import ShopPonchiki
 
-shop_ponchiki = ShopPonchiki(raspberry_pistachio_shell)
+shop_ponchiki = ShopPonchiki()
 
 
 @allure.tag('web')
