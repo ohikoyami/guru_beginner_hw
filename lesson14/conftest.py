@@ -37,10 +37,14 @@ def manage_browser():
 
     yield browser
 
-    attach.add_screenshot(browser)
-    attach.add_logs(browser)
-    attach.add_source(browser)
-    attach.add_video(browser)
-
     browser.quit()
     print("Браузер закрыт фикстурой")
+
+
+@pytest.fixture(autouse=True)
+def attach_result(request, manage_browser):
+    yield
+    attach.add_screenshot(manage_browser)
+    attach.add_logs(manage_browser)
+    attach.add_source(manage_browser)
+    attach.add_video(manage_browser)
