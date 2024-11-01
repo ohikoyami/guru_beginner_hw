@@ -1,24 +1,11 @@
 from pydantic import BaseModel
 from typing import List
-
-
-# Модели данных с использованием pydantic
-class Product(BaseModel):
-    id: str
-    name: str
-    price: float
-    category: str
-    quantity: str
+from data.ponchik_info import Ponchik
 
 
 class CartResponse(BaseModel):
-    products: List[Product]
+    products: List[Ponchik]
 
 
 class FavoriteProduct(BaseModel):
     ID: str
-
-
-class AuthData(BaseModel):
-    username: str
-    password: str

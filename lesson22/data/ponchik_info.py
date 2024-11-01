@@ -1,8 +1,10 @@
-import dataclasses
+from pydantic import BaseModel
 
 
-@dataclasses.dataclass
-class Ponchik:
+class Ponchik(BaseModel):
     name: str
     price: str
     product_id: str
+    quantity: int
+    add_id: str
+    category: str

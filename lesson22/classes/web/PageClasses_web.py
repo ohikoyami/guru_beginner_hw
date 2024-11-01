@@ -18,7 +18,7 @@ class CatalogPage:
 
     def check_ponchiki(self):
         browser.element('.product-section-info__header').should(have.text('Пончики'))
-        browser.element('.product-section-info__up-content').should(have.text('Пончики Krispy Kreme'))
+        browser.element('.product-section-info__up-content').should(have.text('ГЛАВНАЯ / ПОНЧИКИ'))
         return self
 
     def add_product_to_cart(self, ponchik: Ponchik):
