@@ -6,7 +6,7 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from utils.allure_attach import add_source, add_logs, add_video, add_screenshot
+from utils import attach
 
 
 @pytest.fixture(autouse=True)
@@ -38,14 +38,10 @@ def manage_browser():
 
     yield browser
 
+    attach.add_screenshot(browser)
+    attach.add_logs(browser)
+    attach.add_source(browser)
+    attach.add_video(browser)
+
     browser.quit()
     print("Браузер закрыт фикстурой")
-
-
-@pytest.fixture(autouse=True)
-def attach_result(request, manage_browser):
-    yield
-    add_screenshot(manage_browser)
-    add_logs(manage_browser)
-    add_source(manage_browser)
-    add_video(manage_browser)
