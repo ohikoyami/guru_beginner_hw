@@ -1,4 +1,3 @@
-import requests
 from data.site_data import CartResponse, Ponchik, FavoriteProduct
 
 

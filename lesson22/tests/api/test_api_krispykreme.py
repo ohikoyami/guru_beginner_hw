@@ -1,11 +1,8 @@
 import allure
-import requests
 from allure_commons.types import Severity
-from pydantic import BaseModel
 
-from data.ponchik_info import Ponchik
-from products.raspberry_pistachio_shell import raspberry_pistachio_shell
 from classes.api.PageClasses_API import Cart, Favorite
+from products.raspberry_pistachio_shell import raspberry_pistachio_shell
 
 cart = Cart()
 favorite = Favorite()

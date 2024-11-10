@@ -1,6 +1,6 @@
 import os
 import pytest
-from selene import browser, command
+from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
