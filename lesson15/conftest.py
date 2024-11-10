@@ -1,6 +1,8 @@
 import pytest
 from selene import browser
 
+browser.config.base_url = 'https://github.com'
+
 
 # Фикстура для установки размеров окна
 @pytest.fixture(params=[(1920, 1080), (375, 812)], ids=["desktop", "mobile"])
@@ -22,7 +24,7 @@ def window_size_mobile(request):
 @pytest.fixture
 def set_browser_size(window_size):
     browser.config.window_width, browser.config.window_height = window_size
-    browser.open('https://github.com')
+    browser.open('/')
     if browser.config.window_width > 900:
         yield 'desktop'
     else:
@@ -34,7 +36,7 @@ def set_browser_size(window_size):
 @pytest.fixture
 def set_browser_size_desktop(window_size_desktop):
     browser.config.window_width, browser.config.window_height = window_size_desktop
-    browser.open('https://github.com')
+    browser.open('/')
     yield
     browser.quit()
 
@@ -43,6 +45,6 @@ def set_browser_size_desktop(window_size_desktop):
 @pytest.fixture
 def set_browser_size_mobile(window_size_mobile):
     browser.config.window_width, browser.config.window_height = window_size_mobile
-    browser.open('https://github.com')
+    browser.open('/')
     yield
     browser.quit()
