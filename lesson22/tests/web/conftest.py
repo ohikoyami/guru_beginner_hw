@@ -1,11 +1,12 @@
 import os
+
 import pytest
+from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from utils import allure_attach
 
-from utils import attach
-from dotenv import load_dotenv
 
 
 @pytest.fixture(autouse=True)
@@ -44,7 +45,7 @@ def manage_browser():
 @pytest.fixture(autouse=True)
 def attach_result(request, manage_browser):
     yield
-    attach.add_screenshot(manage_browser)
-    attach.add_logs(manage_browser)
-    attach.add_source(manage_browser)
-    attach.add_video(manage_browser)
+    allure_attach.add_screenshot(manage_browser)
+    allure_attach.add_logs(manage_browser)
+    allure_attach.add_source(manage_browser)
+    allure_attach.add_video(manage_browser)
