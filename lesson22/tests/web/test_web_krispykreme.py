@@ -2,8 +2,8 @@ from allure_commons._allure import step
 from selene import browser
 import allure
 from allure_commons.types import Severity
-from products.raspberry_pistachio_shell import raspberry_pistachio_shell
-from classes.web.PageClasses_web import ShopPonchiki
+from lesson22.products.raspberry_pistachio_shell import raspberry_pistachio_shell
+from lesson22.classes.web.PageClasses_web import ShopPonchiki
 
 shop_ponchiki = ShopPonchiki()
 

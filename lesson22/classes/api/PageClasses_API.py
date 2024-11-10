@@ -1,4 +1,5 @@
-from data.site_data import CartResponse, Ponchik, FavoriteProduct
+from lesson22.data.site_data import CartResponse, FavoriteProduct
+from lesson22.data.ponchik_info import Ponchik
 
 
 class Cart:

@@ -1,8 +1,8 @@
 import allure
 from allure_commons.types import Severity
 
-from classes.api.PageClasses_API import Cart, Favorite
-from products.raspberry_pistachio_shell import raspberry_pistachio_shell
+from lesson22.classes.api.PageClasses_API import Cart, Favorite
+from lesson22.products.raspberry_pistachio_shell import raspberry_pistachio_shell
 
 cart = Cart()
 favorite = Favorite()

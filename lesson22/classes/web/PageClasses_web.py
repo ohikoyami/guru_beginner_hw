@@ -1,7 +1,7 @@
 import time
 
 from selene import browser, have, be, by
-from data.ponchik_info import Ponchik
+from lesson22.data.ponchik_info import Ponchik
 
 
 class BasePage:

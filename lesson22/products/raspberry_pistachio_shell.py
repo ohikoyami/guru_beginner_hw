@@ -1,4 +1,4 @@
-from data.ponchik_info import Ponchik
+from lesson22.data.ponchik_info import Ponchik
 
 raspberry_pistachio_shell = Ponchik(
     name='Шелл малиново-фисташковый',

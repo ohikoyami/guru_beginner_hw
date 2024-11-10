@@ -3,7 +3,7 @@ from typing import List
 
 from pydantic.utils import Optional
 
-from data.ponchik_info import Ponchik
+from lesson22.data.ponchik_info import Ponchik
 
 
 class CartResponse(BaseModel):

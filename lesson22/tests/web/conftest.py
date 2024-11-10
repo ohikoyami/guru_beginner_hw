@@ -6,7 +6,7 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from utils import attach
+from lesson22.utils import attach
 
 
 @pytest.fixture(autouse=True)
