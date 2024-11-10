@@ -43,9 +43,9 @@ def manage_browser():
 
 
 @pytest.fixture(autouse=True)
-def attach_result(request, manage_browser, add_source, add_video, add_logs, add_screenshot):
+def attach_result(request, manage_browser):
     yield
-    add_screenshot().add_screenshot(manage_browser)
-    add_logs().add_logs(manage_browser)
-    add_source().add_source(manage_browser)
-    add_video().add_video(manage_browser)
+    add_screenshot(manage_browser)
+    add_logs(manage_browser)
+    add_source(manage_browser)
+    add_video(manage_browser)
