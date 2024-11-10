@@ -6,8 +6,7 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-#from utils import allure_attach
-from lesson22.utils.allure_attach import allure_attach
+from utils.allure_attach import add_source, add_logs, add_video, add_screenshot
 
 
 @pytest.fixture(autouse=True)
@@ -44,9 +43,9 @@ def manage_browser():
 
 
 @pytest.fixture(autouse=True)
-def attach_result(request, manage_browser):
+def attach_result(request, manage_browser, add_source, add_video, add_logs, add_screenshot):
     yield
-    allure_attach.add_screenshot(manage_browser)
-    allure_attach.add_logs(manage_browser)
-    allure_attach.add_source(manage_browser)
-    allure_attach.add_video(manage_browser)
+    add_screenshot().add_screenshot(manage_browser)
+    add_logs().add_logs(manage_browser)
+    add_source().add_source(manage_browser)
+    add_video().add_video(manage_browser)
