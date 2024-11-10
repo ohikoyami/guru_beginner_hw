@@ -5,8 +5,9 @@ from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from utils import allure_attach
 
+from utils import allure_attach
+from lesson22.utils.allure_attach import allure_attach
 
 
 @pytest.fixture(autouse=True)
