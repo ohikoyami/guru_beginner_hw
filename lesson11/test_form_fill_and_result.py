@@ -52,7 +52,7 @@ def check_result():
         'Maths',
         'Sports, '
         'Music',
-        'img.png',
+        'test_results.png',
         'st. Skobelevskaya',
         'Rajasthan Jaipur'))
 

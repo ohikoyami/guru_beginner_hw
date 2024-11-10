@@ -13,5 +13,5 @@ daria = Student('Daria',
                     2002,
                     'Sports',
                     'Music',
-                    'img.png'
+                    'test_results.png'
                     )

@@ -29,7 +29,7 @@ def test_fill_form():
         '09 April,2002',
         'Maths',
         'Sports, Music',
-        'img.png',
+        'test_results.png',
         'st. Skobelevskaya',
         'Rajasthan Jaipur')
      )
