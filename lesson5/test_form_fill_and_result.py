@@ -51,6 +51,6 @@ def test_fill_form():
         'Maths',
         'Sports, '
         'Music',
-        'img.png',
+        'test_results.png',
         'st. Skobelevskaya',
         'Rajasthan Jaipur'))
