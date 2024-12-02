@@ -1,5 +1,6 @@
 import logging
 import requests
+from allure import attach
 from allure_commons.types import AttachmentType
 from selene import browser, be, have, query
 from config.config import BASE_URL, LOGIN, PASSWORD
@@ -27,6 +28,8 @@ class Product:
                            extension="json")
         attach(body=str(response.cookies.get('Nop.customer')), name="Cookies", attachment_type=AttachmentType.TEXT,
                            extension="txt")
+        attachment_type=AttachmentType.TEXT,
+                            extension="txt")
         logging.info(response.request.url)
         logging.info(response.status_code)
         logging.info(response.text)
