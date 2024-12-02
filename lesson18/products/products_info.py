@@ -21,15 +21,13 @@ class Product:
                            extension="txt")
         attach(body=json.dumps(dict(response.request.headers),
                            indent=4, ensure_ascii=True), name='Request Headers',
-        attachment_type=AttachmentType.JSON,
+                           attachment_type=AttachmentType.JSON,
                            extension="json")
         attach(body=json.dumps(response.json(),
                            indent=4, ensure_ascii=True), name="Response", attachment_type=AttachmentType.JSON,
                            extension="json")
         attach(body=str(response.cookies.get('Nop.customer')), name="Cookies", attachment_type=AttachmentType.TEXT,
                            extension="txt")
-        attachment_type=AttachmentType.TEXT,
-                            extension="txt")
         logging.info(response.request.url)
         logging.info(response.status_code)
         logging.info(response.text)
