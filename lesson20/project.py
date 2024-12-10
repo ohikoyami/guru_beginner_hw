@@ -9,29 +9,29 @@ class Config(pydantic.BaseSettings):
     context: Literal['bstack', 'emulator', 'real'] = 'emulator'
 
     url: str = None
-    deviceName: str = None
+    device_name: str = None
     udid: str = None
-    ignoreHiddenApiPolicyError: bool = None
-    appWaitActivity: str = None
+    ignore_hidden_api_policy_error: bool = None
+    app_wait_activity: str = None
     app: str = None
     timeout: float = None
-    userName: str = pydantic.Field(None, env=['bs.userName', 'userName'])
-    accessKey: str = pydantic.Field(None, env=['bs.accessKey', 'accessKey'])
+    user_name: str = pydantic.Field(None, env=['bs.userName', 'userName'])
+    access_key: str = pydantic.Field(None, env=['bs.accessKey', 'accessKey'])
 
     def to_driver_options(self):
         options = UiAutomator2Options()
 
-        if self.deviceName:
-            options.set_capability('deviceName', self.deviceName)
+        if self.device_name:
+            options.set_capability('deviceName', self.device_name)
 
         if self.udid:
             options.set_capability('udid', self.udid)
 
-        if self.ignoreHiddenApiPolicyError:
-            options.set_capability('ignoreHiddenApiPolicyError', self.ignoreHiddenApiPolicyError)
+        if self.ignore_hidden_api_policy_error:
+            options.set_capability('ignoreHiddenApiPolicyError', self.ignore_hidden_api_policy_error)
 
-        if self.appWaitActivity:
-            options.set_capability('appWaitActivity', self.appWaitActivity)
+        if self.app_wait_activity:
+            options.set_capability('appWaitActivity', self.app_wait_activity)
 
         options.set_capability('app', (
             self.app if (self.app.startswith('С:\\') or self.app.startswith('bs://'))
@@ -46,8 +46,8 @@ class Config(pydantic.BaseSettings):
                     'buildName': 'browserstack-build-1',
                     'sessionName': 'BStack first_test',
 
-                    'userName': self.userName,
-                    'accessKey': self.accessKey,
+                    'userName': self.user_name,
+                    'accessKey': self.access_key,
                 },
             )
 
